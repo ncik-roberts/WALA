@@ -45,6 +45,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -257,7 +258,7 @@ public class AndroidManifestXMLReader {
       this.allowedSubTagsHolder = allowedSubTags;
       if (item != null) {
         try {
-          this.item = item.newInstance();
+          this.item = item.getConstructor().newInstance();
           this.item.setSelf(this);
         } catch (java.lang.InstantiationException e) {
           e.getCause().printStackTrace();
@@ -268,7 +269,13 @@ public class AndroidManifestXMLReader {
             e.getCause().printStackTrace();
           }
           throw new IllegalStateException("IllegalAccessException was thrown");
-        }
+        } catch (InvocationTargetException e) {
+          e.printStackTrace();
+          throw new IllegalStateException("InvocationTargetException was thrown");
+		} catch (NoSuchMethodException e) {
+          e.printStackTrace();
+          throw new IllegalStateException("NoSuchMethodException was thrown");
+		}
       } else {
         this.item = null;
       }
