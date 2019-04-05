@@ -81,7 +81,7 @@ public class GraphReachability<T, S> {
   public boolean solve(IProgressMonitor monitor) throws CancelException {
 
     ITransferFunctionProvider<T, BitVectorVariable> functions =
-        new ITransferFunctionProvider<>() {
+        new ITransferFunctionProvider<T, BitVectorVariable>() {
 
           /*
            * @see com.ibm.wala.dataflow.graph.ITransferFunctionProvider#getNodeTransferFunction(java.lang.Object)

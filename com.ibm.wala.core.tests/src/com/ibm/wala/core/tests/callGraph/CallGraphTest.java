@@ -512,7 +512,7 @@ public class CallGraphTest extends WalaTestCase {
       nodes.add((cgNode).getMethod().getReference());
     }
 
-    return new Graph<>() {
+    return new Graph<MethodReference>() {
       @Override
       public String toString() {
         return "squashed " + name + " call graph\n" + "Original graph:" + cg;

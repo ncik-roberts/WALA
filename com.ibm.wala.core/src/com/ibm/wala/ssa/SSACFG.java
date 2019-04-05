@@ -465,7 +465,7 @@ public class SSACFG
         lookup++;
       }
       final int dummy = lookup;
-      return new Iterator<>() {
+      return new Iterator<SSAInstruction>() {
         private int start = dummy;
 
         @Override
@@ -680,7 +680,7 @@ public class SSACFG
 
     @Override
     public Iterator<TypeReference> getCaughtExceptionTypes() {
-      return new Iterator<>() {
+      return new Iterator<TypeReference>() {
         int next = 0;
 
         @Override
@@ -839,7 +839,7 @@ public class SSACFG
     }
     IBasicBlock<IInstruction> n = delegate.getNode(b.getNumber());
     final Iterator<IBasicBlock<IInstruction>> i = delegate.getPredNodes(n);
-    return new Iterator<>() {
+    return new Iterator<ISSABasicBlock>() {
       @Override
       public boolean hasNext() {
         return i.hasNext();
@@ -881,7 +881,7 @@ public class SSACFG
     }
     IBasicBlock<IInstruction> n = delegate.getNode(b.getNumber());
     final Iterator<IBasicBlock<IInstruction>> i = delegate.getSuccNodes(n);
-    return new Iterator<>() {
+    return new Iterator<ISSABasicBlock>() {
       @Override
       public boolean hasNext() {
         return i.hasNext();

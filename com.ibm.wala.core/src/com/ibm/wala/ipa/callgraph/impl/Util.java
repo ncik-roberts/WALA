@@ -236,7 +236,7 @@ public class Util {
 
     return () -> {
       final Atom mainMethod = Atom.findOrCreateAsciiAtom("main");
-      return new Iterator<>() {
+      return new Iterator<Entrypoint>() {
         private int index = 0;
 
         @Override

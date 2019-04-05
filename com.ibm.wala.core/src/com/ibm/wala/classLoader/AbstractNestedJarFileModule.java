@@ -99,7 +99,7 @@ public abstract class AbstractNestedJarFileModule implements Module {
   public Iterator<ModuleEntry> getEntries() {
     populateCache();
     final Iterator<String> it = cache.keySet().iterator();
-    return new Iterator<>() {
+    return new Iterator<ModuleEntry>() {
       String next = null;
 
       {

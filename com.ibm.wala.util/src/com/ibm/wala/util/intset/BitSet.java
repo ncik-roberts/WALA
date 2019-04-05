@@ -127,7 +127,7 @@ public final class BitSet<T> {
 
   /** Not very efficient. */
   public Iterator<T> iterator() {
-    return new Iterator<>() {
+    return new Iterator<T>() {
       private int nextCounter = -1;
 
       {

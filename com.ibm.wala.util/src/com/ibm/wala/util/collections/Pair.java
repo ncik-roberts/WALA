@@ -46,7 +46,7 @@ public class Pair<T, U> implements Serializable {
   }
 
   public Iterator<Object> iterator() {
-    return new Iterator<>() {
+    return new Iterator<Object>() {
       byte nextFlag = 1;
 
       @Override

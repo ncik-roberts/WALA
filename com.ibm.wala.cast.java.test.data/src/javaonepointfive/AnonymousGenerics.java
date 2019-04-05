@@ -66,7 +66,7 @@ public class AnonymousGenerics {
 	}
 	
 	private void doit() {
-		Ops<String> strQuadrupler = new Ops<>() {
+		Ops<String> strQuadrupler = new Ops<String>() {
 			
       @Override
       public String unary(String x) {

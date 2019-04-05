@@ -59,7 +59,7 @@ public class JarFileModule implements Module {
    */
   @Override
   public Iterator<ModuleEntry> getEntries() {
-    return new Iterator<>() {
+    return new Iterator<ModuleEntry>() {
 
       private Enumeration<JarEntry> zipEntryEnumerator = file.entries();
 

@@ -109,7 +109,7 @@ public class TwoLevelVector<T> implements IVector<T>, Serializable {
    */
   @Override
   public Iterator<T> iterator() {
-    return new Iterator<>() {
+    return new Iterator<T>() {
       final Iterator<SparseVector<T>> outer = data.iterator();
 
       Iterator<T> inner;

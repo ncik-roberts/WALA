@@ -18,7 +18,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Stack;
 import java.util.zip.GZIPOutputStream;
 
@@ -57,7 +56,7 @@ public class Runtime {
   private ThreadLocal<String> currentSite = new ThreadLocal<>();
 
   private ThreadLocal<Stack<String>> callStacks =
-      new ThreadLocal<>() {
+      new ThreadLocal<Stack<String>>() {
 
         @Override
         protected Stack<String> initialValue() {
@@ -84,8 +83,8 @@ public class Runtime {
     }
 
     try {
-      handleCallback = (Policy) Class.forName(policyClassName).getConstructor().newInstance();
-    } catch (InstantiationException | IllegalAccessException | ClassNotFoundException | InvocationTargetException | NoSuchMethodException e) {
+      handleCallback = (Policy) Class.forName(policyClassName).newInstance();
+    } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
       handleCallback = new DefaultCallbackPolicy();
     }
 

@@ -64,7 +64,7 @@ public class PrefixTransferFunctionProvider
 
   @Override
   public AbstractMeetOperator<PrefixVariable> getMeetOperator() {
-    return new AbstractMeetOperator<>() {
+    return new AbstractMeetOperator<PrefixVariable>() {
 
       @Override
       public boolean equals(Object o) {

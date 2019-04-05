@@ -51,7 +51,7 @@ public class ArraySet<T> extends AbstractSet<T> {
 
   @SuppressWarnings("rawtypes")
   private static final ArraySet EMPTY =
-      new ArraySet<>(0, true) {
+      new ArraySet<Object>(0, true) {
         @Override
         /*
          * @throws UnsupportedOperationException unconditionally

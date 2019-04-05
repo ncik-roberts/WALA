@@ -30,13 +30,13 @@ public class ExtensionGraph<T> implements NumberedGraph<T> {
   private final NumberedGraph<T> original;
   private final NumberedNodeManager<T> additionalNodes = new SlowNumberedNodeManager<>();
   private final NumberedEdgeManager<T> edgeManager =
-      new NumberedEdgeManager<>() {
+      new NumberedEdgeManager<T>() {
         private final Map<T, MutableIntSet> inEdges = HashMapFactory.make();
         private final Map<T, MutableIntSet> outEdges = HashMapFactory.make();
 
         private Iterator<T> nodes(final T node, final Map<T, ? extends IntSet> extra) {
           if (extra.containsKey(node)) {
-            return new Iterator<>() {
+            return new Iterator<T>() {
               private final IntIterator i = extra.get(node).intIterator();
 
               @Override

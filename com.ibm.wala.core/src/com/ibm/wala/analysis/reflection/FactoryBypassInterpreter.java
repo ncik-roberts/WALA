@@ -170,7 +170,7 @@ public class FactoryBypassInterpreter extends AbstractReflectionInterpreter {
   @Override
   public Iterator<CallSiteReference> iterateCallSites(CGNode node) {
     final Iterator<SSAInstruction> I = getInvokeStatements(node);
-    return new Iterator<>() {
+    return new Iterator<CallSiteReference>() {
       @Override
       public boolean hasNext() {
         return I.hasNext();
