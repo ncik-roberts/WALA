@@ -254,4 +254,14 @@ public abstract class AstClass implements IClass, ClassConstants {
 
     return result;
   }
+  
+  public void updateMethod(Selector selector, IMethod method) {
+    if (declaredMethods.containsKey(selector)) {
+      declaredMethods.put(selector, method);
+    } else if (getSuperclass() != null) {
+      if(getSuperclass() instanceof AstClass){
+        ((AstClass) getSuperclass()).updateMethod(selector,method);
+      }
+    }
+  }
 }
